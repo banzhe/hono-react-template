@@ -1,0 +1,15 @@
+{
+  "workspace": [
+    "./packages/server",
+    "./packages/web"
+  ],
+  "tasks": {
+    "dev:server": "deno task -c packages/server/deno.json start",
+    "dev:web": "cd packages/web && npm run dev",
+    "build:web": "cd packages/web && npm run build",
+    "dev": "deno task dev:server & deno task dev:web",
+    "lint": "deno lint",
+    "lint:fix": "deno lint --fix"
+  },
+  "nodeModulesDir": "auto"
+}

@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "npm:@hono/zod-validator@~0.7.5": "0.7.5_hono@4.10.8_zod@4.1.13",
     "npm:@radix-ui/react-slot@^1.2.4": "1.2.4_@types+react@19.2.7_react@19.2.1",
     "npm:@tailwindcss/vite@^4.1.17": "4.1.17_vite@7.2.7__@types+node@24.10.2__picomatch@4.0.3_@types+node@24.10.2",
     "npm:@types/node@^24.10.1": "24.10.2",
@@ -21,7 +22,8 @@
     "npm:tailwindcss@^4.1.17": "4.1.17",
     "npm:tw-animate-css@^1.4.0": "1.4.0",
     "npm:typescript@5.9.3": "5.9.3",
-    "npm:typescript@~5.9.3": "5.9.3"
+    "npm:typescript@~5.9.3": "5.9.3",
+    "npm:zod@^4.1.13": "4.1.13"
   },
   "npm": {
     "@babel/runtime@7.28.4": {
@@ -175,6 +177,13 @@
       "integrity": "sha512-alJC0uCZpTFrSL0CCDjcgleBXPnCrEAhTBILpeAp7M/OFgoqtAetfBzX0xM00MUsVVPpVjlPuMbREqnZCXaTnA==",
       "os": ["win32"],
       "cpu": ["x64"]
+    },
+    "@hono/zod-validator@0.7.5_hono@4.10.8_zod@4.1.13": {
+      "integrity": "sha512-n4l4hutkfYU07PzRUHBOVzUEn38VSfrh+UVE5d0w4lyfWDOEhzxIupqo5iakRiJL44c3vTuFJBvcmUl8b9agIA==",
+      "dependencies": [
+        "hono",
+        "zod"
+      ]
     },
     "@jridgewell/gen-mapping@0.3.13": {
       "integrity": "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==",
@@ -1022,13 +1031,18 @@
         "@types/node"
       ],
       "bin": true
+    },
+    "zod@4.1.13": {
+      "integrity": "sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig=="
     }
   },
   "workspace": {
     "members": {
       "packages/server": {
         "dependencies": [
-          "npm:hono@^4.10.8"
+          "npm:@hono/zod-validator@~0.7.5",
+          "npm:hono@^4.10.8",
+          "npm:zod@^4.1.13"
         ]
       },
       "packages/web": {

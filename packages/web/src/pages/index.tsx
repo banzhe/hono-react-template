@@ -1,7 +1,6 @@
 import { useRequest } from "ahooks";
 import { Button } from "../components/ui/button.tsx";
-import type { ApiType } from '@deno-react-template/server'
-import { hc } from 'hono/client'
+import { hello } from "../api/hello.ts";
 
 export default function Index() {
   const {
@@ -9,14 +8,8 @@ export default function Index() {
     loading,
     error,
   } = useRequest(async () => {
-    const client = hc<ApiType>('/api')
-    await client.hello.$get()
-
-    const response = await fetch("/api/hello");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.text();
+    const { message } = await hello();
+    return message;
   });
 
   return (

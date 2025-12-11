@@ -31,9 +31,6 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "@deno-react-template/server": [
-        "../server/api.ts"
       ]
     }
   },
